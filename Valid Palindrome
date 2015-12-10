@@ -1,0 +1,33 @@
+public class Solution {
+    public boolean isPalindrome(String s) {
+        
+        if(s.length()==0){
+            return true;
+        }
+        
+        String tmp = s.toLowerCase();
+        
+        ArrayList<Character> c = new ArrayList<>();
+        
+        for(int i=0; i<tmp.length(); i++){
+            if((tmp.charAt(i)>='a' && tmp.charAt(i)<='z')||(tmp.charAt(i)>='0' && tmp.charAt(i)<='9')){
+                c.add(tmp.charAt(i));
+            }
+        }
+        
+        int beginPointer = 0;
+        int lastPointer = c.size()-1;
+        
+        while(beginPointer < lastPointer){
+            if(c.get(beginPointer)!=c.get(lastPointer)){
+                return false;
+            }
+            
+            beginPointer++;
+            lastPointer--;
+        }
+        
+        return true;
+        
+    }
+}
